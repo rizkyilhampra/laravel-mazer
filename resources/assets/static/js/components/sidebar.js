@@ -280,7 +280,11 @@ window.Sidebar = Sidebar
 
 if (sidebarEl) {
   // initialize
-  const sidebar = new window.Sidebar(sidebarEl)
+    document.addEventListener('livewire:navigated', () =>{
+        new window.Sidebar(document.getElementById("sidebar"), {
+            recalculateHeight: true
+        })
+    })
 }
 
 // NOTE use this to reinitialize sidebar with recalculate height

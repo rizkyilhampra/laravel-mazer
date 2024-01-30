@@ -1,19 +1,3 @@
-<?php
-
-use function Livewire\Volt\{state};
-
-state([
-    'item' => [
-        [
-            'name' => 'Home',
-            'icon' => 'bi bi-grid-fill',
-            'route' => 'home',
-        ],
-    ],
-])
-
-?>
-
 <div id="sidebar">
     <div class="sidebar-wrapper active">
         <div class="sidebar-header position-relative">
@@ -58,17 +42,11 @@ state([
         <div class="sidebar-menu">
             <ul class="menu">
                 <li class="sidebar-title">Menu</li>
-                @foreach($item as $i)
-                <li class="
-                        sidebar-item
-                        {{request()->routeIs($i['route']) ? 'active' : ''}}
-                    ">
-                    <a href="{{route($i['route'])}}" class='sidebar-link'>
-                        <i class="bi bi-grid-fill"></i>
-                        <span>{{$i['name']}}</span>
-                    </a>
-                </li>
-                @endforeach
+                <x-sidebar-menu
+                    name="Home"
+                    icon="bi bi-grid-fill"
+                    route="home"
+                />
             </ul>
         </div>
     </div>

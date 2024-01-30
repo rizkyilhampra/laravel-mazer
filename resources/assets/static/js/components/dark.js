@@ -47,7 +47,7 @@ function initTheme() {
   return setTheme(mediaQuery.matches ? "dark" : "light", true)
 }
 
-window.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('livewire:navigated', () => {
   const toggler = document.getElementById("toggle-dark")
   const theme = localStorage.getItem(THEME_KEY)
 

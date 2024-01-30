@@ -8,5 +8,9 @@ middleware(['auth'])
 ?>
 
 <x-app-layout title="Home" pageTitle="Home">
+@volt
+    <div>
 
+    </div>
+@endvolt
 </x-app-layout>

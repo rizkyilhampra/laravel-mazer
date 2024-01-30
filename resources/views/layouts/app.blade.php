@@ -11,7 +11,7 @@
 
 <body>
     <div id="app">
-        <livewire:app.sidebar />
+        @include('layouts.partials.sidebar')
         <div id="main" class='layout-navbar navbar-fixed'>
             @include('layouts.partials.header')
             <div id="main-content">
