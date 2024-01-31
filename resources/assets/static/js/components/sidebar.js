@@ -3,7 +3,7 @@ import isDesktop from '../helper/isDesktop'
 
 /**
  * Calculate nested children height in sidebar menu
-* @param {HTMLElement} el 
+* @param {HTMLElement} el
 */
 const calculateChildrenHeight = (el, deep = false) => {
   const children = el.children
@@ -264,13 +264,6 @@ const reInit_SubMenuHeight = (sidebarEl) => {
   }
 }
 
-
-if (document.readyState !== 'loading') {
-  onFirstLoad(sidebarEl)
-}
-else {
-  window.addEventListener('DOMContentLoaded', () => onFirstLoad(sidebarEl))
-}
 /**
  * Create Sidebar Wrapper
  */
@@ -278,20 +271,19 @@ else {
 // NOTE make Sidebar method as a global function
 window.Sidebar = Sidebar
 
-if (sidebarEl) {
-  // initialize
-    document.addEventListener('livewire:navigated', () =>{
-        new window.Sidebar(document.getElementById("sidebar"), {
-            recalculateHeight: true
-        })
-    })
-}
+// initialize
+document.addEventListener('livewire:navigated', () => {
+  onFirstLoad(document.getElementById("sidebar"))
+  new window.Sidebar(document.getElementById("sidebar"), {
+    recalculateHeight: false
+  })
+})
 
 // NOTE use this to reinitialize sidebar with recalculate height
 // NOTE fixed dropdown smooth animation
-/* 
+/*
 const sidebar = new window.Sidebar(document.getElementById("sidebar"), {
   recalculateHeight: true
-}) 
+})
 */
 
