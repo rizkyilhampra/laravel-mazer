@@ -8,4 +8,7 @@ middleware('auth');
 
 ?>
 
-<x-layouts.app>hallo</x-layouts.app>
+<x-layouts.app title="Dashboard" page-title="Dashboard">
+
+
+</x-layouts.app>
