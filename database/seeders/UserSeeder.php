@@ -13,8 +13,6 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
-
         $user = new \App\Models\User;
 
         $admin = $user->factory()->create([
@@ -24,7 +22,7 @@ class UserSeeder extends Seeder
 
         ]);
 
-        $adminRole = app(Role::class)->findOrCreate(RoleEnum::ADMIN->value, 'web');
-        $admin->assignRole($adminRole);
+        $role = app(Role::class)->findByName(RoleEnum::ADMIN->value);
+        $admin->assignRole($role);
     }
 }

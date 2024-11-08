@@ -12,7 +12,7 @@ class RoleSeeder extends Seeder
     public function run(): void
     {
         foreach (\App\Enums\RoleEnum::cases() as $role) {
-            \Spatie\Permission\Models\Role::findOrCreate($role->value, 'web');
+            \Spatie\Permission\Models\Role::create(['name' => $role->value]);
         }
     }
 }

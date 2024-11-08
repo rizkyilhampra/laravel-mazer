@@ -19,12 +19,4 @@ enum RoleEnum: string
     {
         return self::from($role)->label();
     }
-
-    public static function toValues(): array
-    {
-        return [
-            self::ADMIN,
-            self::EMPLOYE,
-        ];
-    }
 }
